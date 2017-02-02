@@ -15,9 +15,10 @@ namespace StringConstructorShould
 				.Case(c => c.Color != "", (v) => "The Color of this car is ")
 				.Case(c => c.Color != "", (v) => v.Color)
 				.Case(c => c.Color != "", (v, builder) => builder.Append(". "))
-				.Case("HorsePower", (v, builder) => builder.Append("This Car is more than 100 HP."))
+				.Case("HorsePower", (v, builder) => builder.Append("This Car has more than 100 HP."))
 				.Build();
-			Assert.AreEqual("The Color of this car is Orange. This Car is more than 100 HP.", x);
+
+			Assert.AreEqual("The Color of this car is Orange. This Car has more than 100 HP.", x);
 		}
 
 		internal class Car

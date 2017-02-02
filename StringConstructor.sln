@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringConstructor", "StringConstructor\StringConstructor.csproj", "{E3F4C540-23B4-46F7-AB19-38A0BEEC66F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringConstructor", "src\StringConstructor\StringConstructor.csproj", "{E3F4C540-23B4-46F7-AB19-38A0BEEC66F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringConstructorShould", "StringConstructorShould\StringConstructorShould.csproj", "{4439F013-098B-486C-878D-D26DF81A0358}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringConstructorShould", "src\StringConstructorShould\StringConstructorShould.csproj", "{4439F013-098B-486C-878D-D26DF81A0358}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
