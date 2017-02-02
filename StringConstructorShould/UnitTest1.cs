@@ -11,10 +11,11 @@ namespace StringConstructorShould
 		public void TestMethod1()
 		{
 			var x = new StringConstructor<Car>(new Car() { Color = "Orange", Price = 11, CarEngine = new CarEngine() { Hp = 200 } })
-				.Case(c => c.Color != "", (v, builder) => builder.Append("The Color of this car is "))
-				.Case(c => c.Color != "", (v, builder) => builder.Append(v.Color))
+				.AddNamedCondition("HorsePower", c => c.CarEngine != null && c.CarEngine.Hp > 100)
+				.Case(c => c.Color != "", (v) => "The Color of this car is ")
+				.Case(c => c.Color != "", (v) => v.Color)
 				.Case(c => c.Color != "", (v, builder) => builder.Append(". "))
-				.Case(c => c.CarEngine != null && c.CarEngine.Hp > 100, (v, builder) => builder.Append("This Car is more than 100 HP."))
+				.Case("HorsePower", (v, builder) => builder.Append("This Car is more than 100 HP."))
 				.Build();
 			Assert.AreEqual("The Color of this car is Orange. This Car is more than 100 HP.", x);
 		}

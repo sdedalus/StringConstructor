@@ -12,9 +12,10 @@ namespace StringConstructor
 		private readonly T1 datasource;
 		private readonly Dictionary<string, Func<T1, bool>> namedConditions = new Dictionary<string, Func<T1, bool>>();
 
-		public void AddNamedCondition(string name, Func<T1, bool> condition)
+		public StringConstructor<T1> AddNamedCondition(string name, Func<T1, bool> condition)
 		{
 			namedConditions.Add(name, condition);
+			return this;
 		}
 
 		public StringConstructor(T1 datasource)
@@ -48,6 +49,24 @@ namespace StringConstructor
 			if (namedConditions[condition](datasource))
 			{
 				act(datasource, stringBuilder);
+			}
+			return this;
+		}
+
+		public ICase<T1> Case(Func<T1, bool> condition, Func<T1, string> fun)
+		{
+			if (condition(datasource))
+			{
+				stringBuilder.Append(fun(datasource));
+			}
+			return this;
+		}
+
+		public ICase<T1> Case(string condition, Func<T1, string> fun)
+		{
+			if (namedConditions[condition](datasource))
+			{
+				stringBuilder.Append(fun(datasource));
 			}
 			return this;
 		}
